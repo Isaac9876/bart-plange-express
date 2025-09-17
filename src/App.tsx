@@ -8,25 +8,25 @@ import { emailConfig } from './config/emailConfig';
 // Testimonials data
   const testimonials = [
     {
-    name: 'Ama Boateng',
+    name: 'Sarah Johnson',
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     review: 'Bart Plange Express delivered my package on time and with a smile. Highly recommended!',
     rating: 5
   },
   {
-    name: 'Kwame Mensah',
+    name: 'Michael Rodriguez',
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     review: 'Excellent service and great customer support. I will use them again!',
     rating: 5
   },
   {
-    name: 'Linda Owusu',
+    name: 'Emily Chen',
     avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
     review: 'Fast, reliable, and affordable. The best delivery company in Ghana!',
     rating: 5
   },
   {
-    name: 'Samuel Asante',
+    name: 'David Thompson',
     avatar: 'https://randomuser.me/api/portraits/men/41.jpg',
     review: 'My international shipment arrived earlier than expected. Thank you!',
     rating: 5
@@ -309,11 +309,18 @@ function App() {
   };
 
   const handleTrack = () => {
-    if (trackingNumber) {
+    if (trackingNumber === 'RTM 992-376-7730') {
       setTrackingLoading(true);
       setShowTrackingModal(true);
       setTimeout(() => {
         setTrackingResult(`Tracking Number: ${trackingNumber}\nStatus: In Transit\nExpected Delivery: Tomorrow`);
+        setTrackingLoading(false);
+      }, 1500);
+    } else {
+      setTrackingLoading(true);
+      setShowTrackingModal(true);
+      setTimeout(() => {
+        setTrackingResult(`Invalid tracking number. Please enter a valid tracking number`);
         setTrackingLoading(false);
       }, 1500);
     }
